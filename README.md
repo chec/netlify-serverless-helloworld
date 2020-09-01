@@ -31,7 +31,7 @@ local development to start with.
 
 ### Environment variables
 
-Set the following in your `.env` file, or use `.env.example` as a template:
+Set the following in your `.env` file, or use `.env.example` as a template (`cp .env.example .env`):
 
 * `WEBHOOK_SIGNING_KEY`: The Chec webhook signing key, which is available from
   [the "Webhooks" section of the Chec Dashboard](https://dashboard.chec.io/settings/webhooks)
