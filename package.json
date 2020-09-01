@@ -7,9 +7,9 @@
   "license": "BSD-3-Clause",
   "private": false,
   "scripts": {
-	"start": "netlify-lambda serve src",
-	"build": "netlify-lambda build src",
-	"postinstall": "netlify-lambda install"
+    "start": "netlify-lambda serve src",
+    "build": "netlify-lambda build src",
+    "postinstall": "netlify-lambda install"
   },
   "dependencies": {
     "axios": "^0.20.0",
