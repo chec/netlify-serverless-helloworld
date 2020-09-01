@@ -113,7 +113,7 @@ The Chec Dashboard will also show you a history of the webhook's delivery:
 
 ## Support 
 
-If you have any questions or would like support using this template, please reach out in our [community Slack channel](https://chec-commercejs-community.herokuapp.com/)
+If you have any questions or would like support using this template, please reach out in our [community Slack channel](https://chec-commercejs-community.herokuapp.com/).
 
 ## License
 
