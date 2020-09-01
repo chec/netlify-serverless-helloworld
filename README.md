@@ -4,7 +4,7 @@
 
 ![Hello world](_images/hello-world.png)
 
-This template provides a simple template to use for [Netlify](https://www.netlify.com/) serverless functions with
+This template provides a starting point to use [Netlify](https://www.netlify.com/) serverless functions with
 [Express.js](https://expressjs.com/) as a framework. You can connect your [Commerce.js](https://commercejs.com)
 store to functions like this in order to extend the options for functionality on a Jamstack environment.
 
@@ -110,6 +110,10 @@ You can watch the function log output in the Netlify dashboard to monitor proces
 The Chec Dashboard will also show you a history of the webhook's delivery:
 
 ![Chec webhooks history](_images/chec-webhooks.png)
+
+## Support 
+
+If you have any questions or would like support using this template, please reach out in our {community Slack channel](https://chec-commercejs-community.herokuapp.com/)
 
 ## License
 
