@@ -21,6 +21,7 @@ Some examples of things you could do:
 * Node.js
 * Yarn or npm
 * A Netlify account
+* A Chec account
 
 ## Getting started
 
