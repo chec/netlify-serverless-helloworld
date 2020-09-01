@@ -76,7 +76,7 @@ Go and send a test request for your webhook, or change a product name a few time
 the following in your server log:
 
 ```
-Request from 174.6.112.215: POST /.netlify/functions/api/hello
+Request from 123.45.67.89: POST /.netlify/functions/api/hello
 Hello world
 Response with status 200 in 57 ms.
 ```
