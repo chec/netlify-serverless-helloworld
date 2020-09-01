@@ -1,19 +1,26 @@
 # Commerce.js "hello world" serverless function on Netlify
 
-This template provides a simple template to use for Netlify serverless functions with Express.js as a framework.
-You can connect your Commerce.js store to functions like this in order to extend the options for functionality on
-a Jamstack environment.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c18cd23a-8be6-4368-8bf2-5988de6a4e9f/deploy-status)](https://app.netlify.com/sites/amazing-bhaskara-e62825/deploys)
+
+![Hello world](_images/hello-world.png)
+
+This template provides a simple template to use for [Netlify](https://www.netlify.com/) serverless functions with
+[Express.js](https://expressjs.com/) as a framework. You can connect your [Commerce.js](https://commercejs.com)
+store to functions like this in order to extend the options for functionality on a Jamstack environment.
 
 Some examples of things you could do:
 
 * Print "Hello world!" to the console
 * Automatically generate a discount code when a cart reaches a certain value threshold, and apply it to the cart
 * Send your customers SMS messages when their orders are fulfilled
+* Anything receiving Chec webhooks
+* Anything requiring a secret API key
 
 ## Requirements
 
 * Node.js
 * Yarn or npm
+* A Netlify account
 
 ## Getting started
 
@@ -22,6 +29,8 @@ project on Netlify to include it as part of your existing project. For this exam
 local development to start with.
 
 ### Environment variables
+
+Set the following in your `.env` file, or use `.env.example` as a template:
 
 * `WEBHOOK_SIGNING_KEY`: The Chec webhook signing key, which is available from
   [the "Webhooks" section of the Chec Dashboard](https://dashboard.chec.io/settings/webhooks)
@@ -73,7 +82,33 @@ Response with status 200 in 57 ms.
 
 ## Deploying to Netlify
 
-todo
+If you haven't got a Netlify account already, you can sign up for free using your GitHub account. Head over to
+[the Netlify dashboard](https://app.netlify.com/) and click "New site from Git". We will assume you are working with
+a copy of this repository for the purpose of these examples, but you may also configure serverless functions in
+existing projects too.
+
+When you are asked for your "Basic build settings", you can enter the following:
+
+* **Build command:** `yarn build`
+* **Publish directory:** `dist`. Note: Netlify requires a publish directory, so projects that only use functions will
+  need to create an empty file: `dist/index.html`
+
+Click "Show advanced", and add your signing key while you're here:
+
+* `WEBHOOK_SIGNING_KEY`: _the key copied from Chec Dashboard_
+
+Click "Deploy site". Once your project has finished deploying, you can update your webhook configuration to point
+to the new Netlify domain. This will be something like https://amazing-bhaskara-e62825.netlify.app/.netlify/functions/api/hello.
+
+## You're done!
+
+You can watch the function log output in the Netlify dashboard to monitor processes:
+
+![Netlify logs](_images/netlify-logs.png)
+
+The Chec Dashboard will also show you a history of the webhook's delivery:
+
+![Chec webhooks history](_images/chec-webhooks.png)
 
 ## License
 
