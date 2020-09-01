@@ -1,5 +1,5 @@
 require('dotenv').config()
-const crypto = require("crypto");
+const crypto = require('crypto');
 const axios = require('axios');
 const express = require('express');
 const serverless = require('serverless-http');
@@ -17,12 +17,19 @@ router.post('/hello', [
 ], async (req, res, next) => {
   const errors = validationResult(req);
 
+  // Ensure the environment is configured
+  const signingKey = process.env.WEBHOOK_SIGNING_KEY;
+  if (!signingKey) {
+    res.status(500).json({
+      message: 'Environment variable WEBHOOK_SIGNING_KEY is not defined.',
+    });
+  }
+
   // Extract the incoming webhook signature
   const { signature } = req.body;
   delete req.body.signature;
 
   // Verify the webhook signature
-  const signingKey = process.env.WEBHOOK_SIGNING_KEY;
   const expectedSignature = crypto.createHmac('sha256', signingKey)
     .update(JSON.stringify(req.body))
     .digest('hex');
@@ -43,8 +50,13 @@ router.post('/hello', [
 
   // Call your controller logic
   try {
-    await helloWorldController.hello_world(req, res);
-  }  catch (err) {
+    const response = await helloWorldController.hello_world(req, res);
+    // Return a successful response if you'd like to
+    res.json({
+      message: 'OK',
+      body: response,
+    });
+  } catch (err) {
     res.json({
       message: 'Whoops! Something went wrong.',
       body: err.message
