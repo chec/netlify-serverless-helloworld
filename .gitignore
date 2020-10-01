@@ -2,3 +2,4 @@
 .env
 .environment
 functions
+yarn-error.log
