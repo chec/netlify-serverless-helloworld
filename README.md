@@ -29,6 +29,9 @@ You may clone this repository and deploy it straight to Netlify, although it may
 project on Netlify to include it as part of your existing project. For this example we'll assume you're doing some
 local development to start with.
 
+This template comes with axios installed by default (although not used) in case you need to make HTTP requests.
+Feel free to swap this for any other HTTP library.
+
 ### Environment variables
 
 Set the following in your `.env` file, or use `.env.example` as a template (`cp .env.example .env`):
@@ -50,14 +53,14 @@ yarn start
 Lambda server is listening on 9000
 ```
 
-Once your server is running it will be accessible at `http://localhost:9000/.netlify/functions/api`. This represents
-your base function name "api", and actions such as `POST /hello` will be accessible as sub-routes of this.
+Once your server is running it will be accessible at `http://localhost:9000/.netlify/functions/hello`. This represents
+your function name "hello", which is mapped from the `src/` folder. For more information on how the netlify-lambda
+library works, see [the documentation here](https://github.com/netlify/netlify-lambda).
 
-For example, at this point you can ping your server with cURL and you should receive an error for missing
-environment variables:
+At this point you can ping your server with cURL and you should receive an error for missing environment variables:
 
 ```
-curl -X POST http://localhost:9000/.netlify/functions/api/hello
+curl -X POST http://localhost:9000/.netlify/functions/hello
 {"message":"Environment variable WEBHOOK_SIGNING_KEY is not defined."}
 ```
 
@@ -76,8 +79,8 @@ Go and send a test request for your webhook, or change a product name a few time
 the following in your server log:
 
 ```
-Request from 123.45.67.89: POST /.netlify/functions/api/hello
-Hello world
+Request from 123.45.67.89: POST /.netlify/functions/hello
+Hello world!
 Response with status 200 in 57 ms.
 ```
 
@@ -111,7 +114,7 @@ The Chec Dashboard will also show you a history of the webhook's delivery:
 
 ![Chec webhooks history](_images/chec-webhooks.png)
 
-## Support 
+## Support
 
 If you have any questions or would like support using this template, please reach out in our [community Slack channel](https://chec-commercejs-community.herokuapp.com/).
 
